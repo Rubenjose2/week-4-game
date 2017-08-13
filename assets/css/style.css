@@ -1,0 +1,44 @@
+body {
+    background-image: url(../images/backgroung_image_mine.jpg);
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.opacy {
+    opacity: 0.6;
+}
+
+.crystal_container {
+    background-color: white;
+}
+
+.board_container {
+    background-color: white;
+    padding: 10px 10px;
+}
+
+.crystal_img {
+    width: 180px;
+    height: auto;
+    border-radius: 20px;
+    border: solid;
+    margin: 5px;
+}
+
+.challenge_number {
+    color: blue;
+    font-size: 110px;
+}
+
+.score_number {
+    color: #FF9D00;
+    font-size: 90px;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        background-image: unset;
+        background-color: black;
+    }
+}
