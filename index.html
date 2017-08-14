@@ -73,51 +73,7 @@
         </div>
     </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            //variables
-            var random_number = Math.floor(Math.random() * 120) + 19;
-            var user_score = 0;
-            var random_crystal = [];
-            var breake_function = false;
-            var wins = 0;
-            var loss = 0;
-            //loop to create random var
-            for (var i = 0; i < 4; i++) {
-                randomvar = Math.floor(Math.random() * 12) + 1;
-                random_crystal.push(randomvar);
-            }
-            console.log(random_crystal);
-            //function 
-
-            //assigment labels
-            $(".challange_container").text(random_number);
-
-            //collection from buttons
-            $("button").on("click", function() {
-
-                if (!breake_function) {
-                    console.log(breake_function);
-                    var button_number = $(this).attr("value");
-                    user_score = user_score + random_crystal[button_number];
-                    $(".result_number").text(user_score);
-                    if (random_number == user_score) {
-                        $(".winlosses").text("You Won!");
-                        wins = wins + 1;
-                        $(".wins").text(wins);
-                        random_number = Math.floor(Math.random() * 120) + 19;
-                        user_score = 0;
-                    } else if (user_score > random_number) {
-                        $(".winlosses").text("You loose!");
-                        loss = loss + 1;
-                        $(".loss").text(loss);
-                        random_number = Math.floor(Math.random() * 120) + 19;
-                        user_score = 0;
-                    }
-                }
-            })
-        });
-    </script>
+    <script src="assets/javascript/game.js"></script>
     < /body>
 
         < /html>
