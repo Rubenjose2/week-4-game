@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" style="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" style="text/css" href="assets/css/style.css">
@@ -27,28 +28,28 @@
             </div>
 
             <div class="col-md-5 crystal_container text-center">
-                <div>
+                <button value="1">
                     <img class="crystal_img" src="assets/images/crystal1.jpeg" alt="crystal image 1">
-                </div>
-                <div>
-                    <img class="crystal_img" src="assets/images/crystal2.jpeg" alt="crystal image 2">
-                </div>
-                <div>
+                </button>
+                <button value="2">
+                    <img class="crystal_img" src="assets/images/crystal2.jpeg" alt="crystal image 2" >
+                </button>
+                <button value="3">
                     <img class="crystal_img" src="assets/images/crystal3.jpeg" alt="crystal image 3">
-                </div>
+                </button>
             </div>
 
             <div class="col-md-1">
             </div>
 
-            <div class=" col-md-4  text-center">
+            <div class=" col-md-5 text-center">
                 <div class="board_container">
-                    <h3>Your challenge Number is</h3>
+                    <h4>Your challenge Number is</h4>
                     <div class="challenge_number">
-                        40
+                        <div class="challange_container"></div>
                     </div>
                     <div>
-                        <h3>Score Board</h3>
+                        <h4>Score Board</h4>
                         <h5>Wins:</h5>
                         <div></div>
                         <h5>Losses:</h5>
@@ -61,22 +62,50 @@
                 <div class="board_container">
                     <h4>Your Score</h4>
                     <div class="score_number">
-                        20
+                        <div class="result_number"></div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-
-
     </div>
-
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //variables
+            var random_numer = Math.floor(Math.random() * 50) + 10;
+            var random_crystal1 = (Math.floor(Math.random() * 10) + 1);
+            var random_crystal2 = Math.floor(Math.random() * 10) + 1;
+            var random_crystal3 = Math.floor(Math.random() * 10) + 1;
+            var user_score = 0;
+            console.log(random_numer);
+            console.log(random_crystal1);
+            console.log(random_crystal2);
+            console.log(random_crystal3);
 
+            //assigment labels
+            $(".challange_container").text(random_numer);
 
+            //collection from buttons
+            $("button").on("click", function() {
+                if (random_numer == user_score) {
+                    //won status
+                } else if (user_score > random_numer) {
+                    //Loose Status
+                } else {
+                    var button_number = $(this).attr("value");
+                    if (button_number == 1) {
+                        user_score = user_score + random_crystal1;
+                    } else if (button_number == 2) {
+                        user_score = user_score + random_crystal2;
+                    } else {
+                        user_score = user_score + random_crystal3;
+                    }
+                    $(".result_number").text(user_score);
+                    console.log("user core will be " + user_score);
+                }
+            })
+        });
+    </script>
+    < /body>
 
-</body>
-
-</html>
+        < /html>
